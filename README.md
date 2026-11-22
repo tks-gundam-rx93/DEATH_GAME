@@ -6,7 +6,7 @@
 
 | フォルダ | 作品 | 収録 |
 | --- | --- | --- |
-| [01_REPORT0](scenarios/01_REPORT0/) | REPORT:0 — 死亡予告 | 全8話・第7稿 |
+| [01_REPORT0](scenarios/01_REPORT0/) | REPORT:0 — 死亡予告 | 全8話・第9稿（第7稿・第8稿も保存） |
 | [02_Midnight](scenarios/02_Midnight/) | 午前零時の不在証明 | 全8話・[元稿](scenarios/02_Midnight/scenario.txt)／[レビュー反映版 v2.0](scenarios/02_Midnight/scenario_v2.txt) |
 | [03_KuonGama](scenarios/03_KuonGama/) | 報告書：久遠窯 | 全8話 |
 | [04_24Minutes](scenarios/04_24Minutes/) | 24分のタイムパラドックス | 全4話 |
@@ -28,3 +28,10 @@
 - [24分のタイムパラドックス レビュー（3件）](scenarios/04_24Minutes/reviews/)
 
 久遠窯の `additional_review_from_docx.md` は、Word原稿から本文を抽出した閲覧用テキストであり、元のWordレイアウトは含みません。レビューごとに評価が異なる場合も、統合・上書きせず原文を保持します。
+
+### REPORT:0 最新改訂稿
+
+- **最新**：[第9稿（レビュー3件を反映）](scenarios/01_REPORT0/scenario_v9_all_reviews_applied.txt)
+- **原本**：[第7稿](scenarios/01_REPORT0/scenario.txt)
+- **レビュー資料**：[3AI合議レビュー](scenarios/01_REPORT0/reviews/3AI_council_review_2026-11-22.md)、[TRE-THESAURUSレビュー](scenarios/01_REPORT0/reviews/TRE_THESAURUS_review.md)、[詳細レビュー](scenarios/01_REPORT0/reviews/detailed_scenario_review.md)
+- 対応：レビューの重大4項目を含む G-01〜G-20 を改訂監査票として追記。第8稿のドラフトPR #1は取り下げ（クローズ、未マージ）。
