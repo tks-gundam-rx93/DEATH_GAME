@@ -23,8 +23,8 @@
 作品ごとの `reviews/` フォルダに、複数の独立したレビュー結果を原文のまま区別して保存しています。
 
 - [REPORT:0 レビュー（2件）](scenarios/01_REPORT0/reviews/)
-- [午前零時の不在証明 レビュー（1件）](scenarios/02_Midnight/reviews/)
-- [報告書：久遠窯 レビュー（3件）](scenarios/03_KuonGama/reviews/)
-- [24分のタイムパラドックス レビュー（2件）](scenarios/04_24Minutes/reviews/)
+- [午前零時の不在証明 レビュー（2件）](scenarios/02_Midnight/reviews/)
+- [報告書：久遠窯 レビュー（4件）](scenarios/03_KuonGama/reviews/)
+- [24分のタイムパラドックス レビュー（3件）](scenarios/04_24Minutes/reviews/)
 
 久遠窯の `additional_review_from_docx.md` は、Word原稿から本文を抽出した閲覧用テキストであり、元のWordレイアウトは含みません。レビューごとに評価が異なる場合も、統合・上書きせず原文を保持します。
