@@ -7,7 +7,7 @@
 | フォルダ | 作品 | 収録 |
 | --- | --- | --- |
 | [01_REPORT0](scenarios/01_REPORT0/) | REPORT:0 — 死亡予告 | 全8話・第7稿 |
-| [02_Midnight](scenarios/02_Midnight/) | 午前零時の不在証明 | 全8話・改訂版 |
+| [02_Midnight](scenarios/02_Midnight/) | 午前零時の不在証明 | 全8話・[元稿](scenarios/02_Midnight/scenario.txt)／[レビュー反映版 v2.0](scenarios/02_Midnight/scenario_v2.txt) |
 | [03_KuonGama](scenarios/03_KuonGama/) | 報告書：久遠窯 | 全8話 |
 | [04_24Minutes](scenarios/04_24Minutes/) | 24分のタイムパラドックス | 全4話 |
 
@@ -23,7 +23,7 @@
 作品ごとの `reviews/` フォルダに、複数の独立したレビュー結果を原文のまま区別して保存しています。
 
 - [REPORT:0 レビュー（3件）](scenarios/01_REPORT0/reviews/)
-- [午前零時の不在証明 レビュー（2件）](scenarios/02_Midnight/reviews/)
+- [午前零時の不在証明 レビュー（3件）](scenarios/02_Midnight/reviews/)
 - [報告書：久遠窯 レビュー（4件）](scenarios/03_KuonGama/reviews/)
 - [24分のタイムパラドックス レビュー（3件）](scenarios/04_24Minutes/reviews/)
 
