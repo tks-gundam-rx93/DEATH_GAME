@@ -43,3 +43,12 @@
 - [01-01日本語仮音声の台詞とキュー](scenarios/01_REPORT0/production/EP01_SC01_VOICE_CUES.md)
 
 第1話の初期15秒の動画生成と、01-01の多話者日本語仮音声を開始済み。最終的な本編編集・検収は未完了です。
+
+### 第1話セリフ校正（Owner確認待ち）
+
+- [全文：セリフ校正案](scenarios/01_REPORT0/production/EP01_DIALOGUE_REVISED_DRAFT.md)
+- [39発話・原文／修正案比較表](scenarios/01_REPORT0/production/EP01_DIALOGUE_MASTER.csv)
+- [TTS入力台本（「トレ、テサウルス」の区切り指定）](scenarios/01_REPORT0/production/EP01_TTS_SCRIPT.csv)
+- [変更履歴／検収条件](scenarios/01_REPORT0/production/EP01_DIALOGUE_FIX_LOG.md)
+
+第9稿の原本を保全し、まずOwnerが修正案を確認する運用です。
