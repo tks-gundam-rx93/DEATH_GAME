@@ -35,3 +35,11 @@
 - **原本**：[第7稿](scenarios/01_REPORT0/scenario.txt)
 - **レビュー資料**：[3AI合議レビュー](scenarios/01_REPORT0/reviews/3AI_council_review_2026-11-22.md)、[TRE-THESAURUSレビュー](scenarios/01_REPORT0/reviews/TRE_THESAURUS_review.md)、[詳細レビュー](scenarios/01_REPORT0/reviews/detailed_scenario_review.md)
 - 対応：レビューの重大4項目を含む G-01〜G-20 を改訂監査票として追記。第8稿のドラフトPR #1は取り下げ（クローズ、未マージ）。
+
+## 第1話 映像制作（制作中）
+
+- [制作計画・生成タスク台帳](scenarios/01_REPORT0/production/EP01_PRODUCTION_PLAN.md)
+- [全43カット・510秒のショット表](scenarios/01_REPORT0/production/EP01_SHOTLIST.csv)
+- [01-01日本語仮音声の台詞とキュー](scenarios/01_REPORT0/production/EP01_SC01_VOICE_CUES.md)
+
+第1話の初期15秒の動画生成と、01-01の多話者日本語仮音声を開始済み。最終的な本編編集・検収は未完了です。
