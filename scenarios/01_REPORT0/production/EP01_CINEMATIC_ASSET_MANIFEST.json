@@ -3,62 +3,62 @@
   "base_duration_seconds": 510,
   "asset_status": "generated_in_Runway_not_yet_transferred_to_local_or_GitHub_edit_environment",
   "mute_clip_audio_to_avoid_duplication": true,
-  "source_clips": [
+  "assets": [
     {
       "scene": "01-01",
       "file": "opening.mp4",
       "task_id": "300bb303-a193-4f82-8401-ac257b773b1f",
-      "start_seconds": 0,
-      "duration_seconds": 15
+      "at": 0,
+      "seconds": 15
     },
     {
       "scene": "01-01",
       "file": "public_gateway.mp4",
       "task_id": "3b104a3c-4300-4a8d-868f-e59e987b6a78",
-      "start_seconds": 40,
-      "duration_seconds": 14
+      "at": 40,
+      "seconds": 14
     },
     {
       "scene": "01-02",
       "file": "sealed_door.mp4",
       "task_id": "9a2708fb-b7e5-491c-95eb-2306b76f77cf",
-      "start_seconds": 65,
-      "duration_seconds": 10
+      "at": 65,
+      "seconds": 10
     },
     {
       "scene": "01-03",
       "file": "signal_loss.mp4",
       "task_id": "3532925a-532b-45b6-8c35-2ad6becaf59d",
-      "start_seconds": 181,
-      "duration_seconds": 12
+      "at": 181,
+      "seconds": 12
     },
     {
       "scene": "01-04",
       "file": "investigation.mp4",
       "task_id": "667b1e50-df31-434d-b2e9-c3584d40d356",
-      "start_seconds": 248,
-      "duration_seconds": 10
+      "at": 248,
+      "seconds": 10
     },
     {
       "scene": "01-05",
       "file": "forensic_logs.mp4",
       "task_id": "63f26319-e91c-4722-9e48-7c7111ec6141",
-      "start_seconds": 290,
-      "duration_seconds": 16
+      "at": 290,
+      "seconds": 16
     },
     {
       "scene": "01-06",
       "file": "cctv_archive.mp4",
       "task_id": "0515a6fa-107a-4883-8677-4256d0767e00",
-      "start_seconds": 346,
-      "duration_seconds": 21
+      "at": 346,
+      "seconds": 21
     },
     {
       "scene": "01-07",
       "file": "spoofed_ai.mp4",
       "task_id": "cd6c7b87-ade3-4a55-b5e0-702a5047dc26",
-      "start_seconds": 439,
-      "duration_seconds": 13
+      "at": 439,
+      "seconds": 13
     }
   ]
 }
