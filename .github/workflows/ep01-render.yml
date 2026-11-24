@@ -1,16 +1,8 @@
-name: REPORT0 EP01 Japanese audio + video workprint
+name: '[ARCHIVED] REPORT0 EP01 motion-comic render (disabled)'
 
+# This historical animatic renderer is intentionally retired.
+# New production method: actual Runway MP4 clips -> existing Japanese audio -> per-scene render -> full film.
 on:
-  push:
-    branches:
-      - production/ep01-cinematic-render-20261124
-    paths:
-      - .github/workflows/ep01-render.yml
-      - scenarios/01_REPORT0/production/render_ep01_cloud.py
-  pull_request:
-    paths:
-      - .github/workflows/ep01-render.yml
-      - scenarios/01_REPORT0/production/render_ep01_cloud.py
   workflow_dispatch:
 
 permissions:
@@ -18,6 +10,7 @@ permissions:
 
 jobs:
   render-episode-1:
+    if: ${{ false }} # Archive: never re-render motion comics as substitute for cinematic footage
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
