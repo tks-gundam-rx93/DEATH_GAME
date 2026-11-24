@@ -7,6 +7,10 @@ on:
     paths:
       - .github/workflows/ep01-render.yml
       - scenarios/01_REPORT0/production/render_ep01_cloud.py
+  pull_request:
+    paths:
+      - .github/workflows/ep01-render.yml
+      - scenarios/01_REPORT0/production/render_ep01_cloud.py
   workflow_dispatch:
 
 permissions:
