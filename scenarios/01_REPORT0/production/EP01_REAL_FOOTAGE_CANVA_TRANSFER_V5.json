@@ -1,0 +1,120 @@
+{
+  "project": "REPORT0",
+  "episode": "EP01",
+  "production": "live-action style footage only, YouTube-b video-first approach",
+  "date_jst": "2026-11-24",
+  "validity": "Canva asset IDs stable; signed URLs intentionally omitted",
+  "finished_runway_video_minutes": 2.0262333333333333,
+  "independent_source_clips": 9,
+  "source_clips": [
+    {
+      "order": 1,
+      "key": "opening",
+      "scene": "01-01",
+      "taskId": "300bb303-a193-4f82-8401-ac257b773b1f",
+      "canvaAssetId": "VAHbzmEcFC0",
+      "duration": 15.041
+    },
+    {
+      "order": 2,
+      "key": "amamiya_terminal_NEW",
+      "scene": "01-01",
+      "taskId": "3607728e-9eb1-47e1-b523-473541f1daea",
+      "canvaAssetId": "VAHbzvYVq54",
+      "duration": 10
+    },
+    {
+      "order": 3,
+      "key": "public_gateway",
+      "scene": "01-01",
+      "taskId": "3b104a3c-4300-4a8d-868f-e59e987b6a78",
+      "canvaAssetId": "VAHbzu-gpHc",
+      "duration": 14
+    },
+    {
+      "order": 4,
+      "key": "sealed_door",
+      "scene": "01-02",
+      "taskId": "9a2708fb-b7e5-491c-95eb-2306b76f77cf",
+      "canvaAssetId": "VAHbzsl99u0",
+      "duration": 10
+    },
+    {
+      "order": 5,
+      "key": "signal_loss",
+      "scene": "01-03",
+      "taskId": "3532925a-532b-45b6-8c35-2ad6becaf59d",
+      "canvaAssetId": "VAHbziy28Dc",
+      "duration": 12
+    },
+    {
+      "order": 6,
+      "key": "investigation",
+      "scene": "01-04",
+      "taskId": "667b1e50-df31-434d-b2e9-c3584d40d356",
+      "canvaAssetId": "VAHbzuwFwto",
+      "duration": 10
+    },
+    {
+      "order": 7,
+      "key": "forensic_logs",
+      "scene": "01-05",
+      "taskId": "63f26319-e91c-4722-9e48-7c7111ec6141",
+      "canvaAssetId": "VAHbzs8nvu0",
+      "duration": 16
+    },
+    {
+      "order": 8,
+      "key": "cctv_archive",
+      "scene": "01-06",
+      "taskId": "0515a6fa-107a-4883-8677-4256d0767e00",
+      "canvaAssetId": "VAHbzqGNP6w",
+      "duration": 21
+    },
+    {
+      "order": 9,
+      "key": "spoofed_ai",
+      "scene": "01-07",
+      "taskId": "cd6c7b87-ade3-4a55-b5e0-702a5047dc26",
+      "canvaAssetId": "VAHbzhNwoxo",
+      "duration": 13
+    }
+  ],
+  "assembly": {
+    "clip_count": 9,
+    "runway_task_id": "12a74ceb-dd30-4b79-9ccc-fa9b5c658319",
+    "canvaAssetId": "VAHbzu_JmcQ",
+    "verified_duration_seconds": 121.574,
+    "verified_resolution": "1280x720",
+    "has_audio": true,
+    "status": "DONE",
+    "subtitle_and_canonical_dialogue_alignment": "NOT_DONE",
+    "narrative_completeness": "REEL_NOT_510_SECOND_FILM"
+  },
+  "other_assemblies": [
+    {
+      "clip_count": 3,
+      "runwayTaskId": "33f061ee-edee-46fa-b297-005996a4c4e9",
+      "canvaAssetId": "VAHbzjDHjvk",
+      "seconds": 39.174
+    },
+    {
+      "clip_count": 2,
+      "runwayTaskId": "d2f34384-6c71-4caf-b090-aa85ed1a9e6c",
+      "canvaAssetId": "VAHbzkh7Pyo",
+      "seconds": 29.126
+    },
+    {
+      "clip_count": 8,
+      "runwayTaskId": "56b9e879-455a-48ea-b008-928e3f3dc28c",
+      "canvaAssetId": "VAHbzptJ4jI",
+      "seconds": 111.526
+    }
+  ],
+  "status": {
+    "existing_clip_transfer_to_Canva": "SUCCESS",
+    "local_automated_ffmpeg_ingest": "BLOCKED",
+    "remaining_live_action": "NOT_CREATED",
+    "youtube_release": "NOT_APPROVED"
+  }
+}
