@@ -12,8 +12,8 @@ shots=list(csv.DictReader((HERE/'EP01_SHOTLIST.csv').open(encoding='utf-8-sig'))
 speech=list(csv.DictReader((HERE/'EP01_TTS_KANA_LINES.csv').open(encoding='utf-8-sig')))
 assert len(shots)==43 and len(speech)==39
 assert sum(int(s['duration_s']) for s in shots)==510
-START=[13,17,23,28,39,54,58,62,77,81,89,93,97,103,108,114,129,133,135.5,180,184,191,195,211,222,233,244,254,271,302,317,363,368,392,406,442,448,452,473]
-END=[16,23,28,34,53.5,58,62,64.5,81,89,93,97,103,108,114,118,133,135.5,137.8,184,190,194,197.5,222,233,244,249,260,283,314,331,368,374,405,415,448,452,457,486]
+START=[15.5,19.4,26.45,31.85,40,58.1,62.5,67.2,77,81.7,90.35,94.1,98.4,104.9,109.1,114,128,133.9,136,180,183.75,190.5,195,211,222,232.6,244,254,271,302,317,363,368,392,406,442,448,452,473]
+END=[19.17,26.22,31.63,39.89,58,62.4,67.06,70.94,81.54,90.22,94.02,98.3,104.78,108.93,113.88,118.03,133.76,135.87,137.87,183.6,190.13,194.84,196.87,220.74,228.34,243.86,246.1,257.2,279.64,307.88,322.88,367.49,374.41,402.58,410.32,446.08,450.66,455.26,478.64]
 assert len(START)==len(END)==39
 FONTS=['/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf']
 def ff(sz):
@@ -93,10 +93,18 @@ async def tts():
   path=folder/(row['line_id']+'.mp3')
   if path.exists() and path.stat().st_size>1024:continue
   voice=voices.get(row['speaker_kana'],'ja-JP-NanamiNeural')
+  # Distinct identity for each internal AI; same IDs in archive are broadcast imitations.
+  persona={'ジェンマ':('ja-JP-KeitaNeural','-12Hz','-12%'),
+           'グラディウス':('ja-JP-KeitaNeural','+12Hz','-5%'),
+           'アルカ':('ja-JP-NanamiNeural','-12Hz','-14%'),
+           'にせ ジェンマ':('ja-JP-KeitaNeural','-12Hz','-12%'),
+           'にせ グラディウス':('ja-JP-KeitaNeural','+12Hz','-5%'),
+           'にせ アルカ':('ja-JP-NanamiNeural','-12Hz','-14%')}
+  voice,pitch,rate=persona.get(row['speaker_kana'],(voice,'+0Hz','-8%'))
   text=row['tts_text_kana'].replace('トレ、テサウルス','トレ、　テサウルス')
   for attempt in range(3):
    try:
-    await edge_tts.Communicate(text,voice,rate='-8%').save(str(path));break
+    await edge_tts.Communicate(text,voice,rate=rate,pitch=pitch).save(str(path));break
    except Exception as e:
     if attempt==2:raise
     await asyncio.sleep(2**attempt)
@@ -110,10 +118,15 @@ def mix():
   clip_len=duration(p);space=END[i]-START[i]
   rate=max(1.,clip_len/max(.2,space-.1))
   # A long line must be flagged; avoid discarding any dialogue.
-  if rate>2.0: raise RuntimeError(f"Speech too long {row['line_id']}: {clip_len:.1f}s, slot {space:.1f}s")
+  if rate>1.18: raise RuntimeError(f"Speech too long {row['line_id']}: {clip_len:.1f}s, slot {space:.1f}s")
   delay=round(START[i]*1000)
-  filters.append(f'[{i+1}:a]aresample=48000,aformat=channel_layouts=stereo,atempo={rate:.5f},volume=1.55,adelay={delay}|{delay}[v{i}]')
-  audit.append({'line_id':row['line_id'],'voice_duration':round(clip_len,2),'speed':round(rate,3),'start':START[i],'qc_required':True})
+  # Archive speaker replicas are low-bandwidth playback, distinct from real 3AI channels.
+  speaker=row['speaker_kana']
+  band=('highpass=f=420,lowpass=f=2500,' if speaker.startswith('にせ ') else
+        'highpass=f=230,lowpass=f=4200,' if speaker in ('こうかいゲートウェイ','こうかいシステム') else
+        '')
+  filters.append(f'[{i+1}:a]aresample=48000,aformat=channel_layouts=stereo,{band}atempo={rate:.5f},volume=1.45,adelay={delay}|{delay}[v{i}]')
+  audit.append({'line_id':row['line_id'],'voice_duration':round(clip_len,2),'speed':round(rate,3),'start':START[i],'qc_required':True,'speaker':row['speaker_kana'],'slot_end':END[i],'compression_flag':rate>1.10})
  filters.append('[bg]'+''.join(f'[v{i}]' for i in range(39))+'amix=inputs=40:duration=first:normalize=0,alimiter=limit=0.93[mix]')
  (OUT/'voice_alignment_qc.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2))
  cmd+=['-filter_complex',';'.join(filters),'-map','0:v:0','-map','[mix]','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-t','510','-movflags','+faststart',str(OUT/'EP01_JAPANESE_VOICE_WORKPRINT.mp4')]
