@@ -1,0 +1,50 @@
+name: REPORT0 EP01 Japanese audio + video workprint
+
+on:
+  push:
+    branches:
+      - production/ep01-cinematic-render-20261124
+    paths:
+      - .github/workflows/ep01-render.yml
+      - scenarios/01_REPORT0/production/render_ep01_cloud.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-episode-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install video and speech dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install pillow numpy edge-tts
+      - name: Render 510-second episode-1 workprint and Japanese voices
+        working-directory: scenarios/01_REPORT0/production
+        run: python render_ep01_cloud.py
+      - name: Check result duration and media streams
+        working-directory: scenarios/01_REPORT0/production/build
+        run: |
+          ffprobe -v error -show_entries format=duration,size:stream=codec_type,codec_name -of json EP01_JAPANESE_VOICE_WORKPRINT.mp4 | tee ep01_media_probe.json
+          test -s EP01_JAPANESE_VOICE_WORKPRINT.mp4
+          test -s episode1_kana.srt
+          test -s voice_alignment_qc.json
+      - name: Upload episode video and audio QC files
+        uses: actions/upload-artifact@v4
+        with:
+          name: REPORT0_EP01_VOICE_WORKPRINT_NOT_FINAL
+          path: |
+            scenarios/01_REPORT0/production/build/EP01_JAPANESE_VOICE_WORKPRINT.mp4
+            scenarios/01_REPORT0/production/build/episode1_kana.srt
+            scenarios/01_REPORT0/production/build/voice_alignment_qc.json
+            scenarios/01_REPORT0/production/build/ep01_media_probe.json
+          retention-days: 30
